@@ -1,0 +1,31 @@
+let searchForm = document.querySelector('.header .search-form');
+
+document.querySelector('#searchBtn').onclick = () =>{
+    searchForm.classList.toggle('active');
+}
+
+let navbar = document.querySelector('.header .navbar');
+
+document.querySelector('#menuBtn').onclick = () =>{
+    navbar.classList.toggle('active');
+}
+
+window.onscroll = () =>{
+    searchForm.classList.remove('active');
+    navbar.classList.remove('active');
+}
+
+let slides = document.querySelectorAll('.home .slide');
+let index = 0;
+
+function next(){
+    slides[index].classList.remove('active');
+    index = (index + 1) % slides.length;
+    slides[index].classList.add('active');
+}
+
+function prev(){
+    slides[index].classList.remove('active');
+    index = (index - 1 + slides.length) % slides.length;
+    slides[index].classList.add('active');
+}
